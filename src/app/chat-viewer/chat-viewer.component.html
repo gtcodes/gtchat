@@ -1,3 +1,7 @@
-<p>
-  chat-viewer works!
-</p>
+<ul>
+
+  <li *ngFor="let message of messages">
+    {{message.author}}: {{message.message}}
+  </li>
+
+</ul>

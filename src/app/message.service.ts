@@ -10,4 +10,8 @@ export class MessageService {
   getMessages(): Message[] {
     return MESSAGES;
   }
+
+  addMessage(author: string, message: string): void {
+    //TODO
+  }
 }
