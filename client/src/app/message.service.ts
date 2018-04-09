@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Message } from './message';
-import { MESSAGES } from './messages.mock'
+import {  }
 
 @Injectable()
 export class MessageService {
@@ -8,7 +8,7 @@ export class MessageService {
   constructor() { }
 
   getMessages(): Message[] {
-    return MESSAGES;
+    return;
   }
 
   addMessage(author: string, message: string): void {
