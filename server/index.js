@@ -13,5 +13,6 @@ io.on('connection', function (socket) {
   socket.on('add-message', function (data) {
     console.log(data);
     socket.emit('message', data);
+    socket.broadcast.emit('message', data)
   });
 });
