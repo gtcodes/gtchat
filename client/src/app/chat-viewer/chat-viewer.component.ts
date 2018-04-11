@@ -11,11 +11,9 @@ import { Observable } from 'rxjs/Observable';
 export class ChatViewerComponent implements OnInit {
   private messages: Message[];
   private connection;
-  private messageToSend: string
 
   constructor( private messageService: MessageService ) {
     this.messages = [];
-    this.messageToSend = "hello";
   }
 
   ngOnInit() {
@@ -28,11 +26,6 @@ export class ChatViewerComponent implements OnInit {
 
   ngOnDestroy() {
     this.connection.unsubscribe();
-  }
-
-  sendMessage(): void {
-    this.messageService.sendMessage("Kevin", this.messageToSend);
-    this.messageToSend = "";
   }
 
 }

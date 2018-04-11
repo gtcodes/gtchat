@@ -6,12 +6,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ChatViewerComponent } from './chat-viewer/chat-viewer.component';
+import { ChatWriterComponent } from './chat-writer/chat-writer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatViewerComponent
+    ChatViewerComponent,
+    ChatWriterComponent
   ],
   imports: [
     BrowserModule,
