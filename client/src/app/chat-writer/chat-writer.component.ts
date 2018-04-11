@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../message.service';
-
+import { SetNameComponent } from '../set-name/set-name.component'
 
 @Component({
   selector: 'app-chat-writer',
@@ -9,15 +9,20 @@ import { MessageService } from '../message.service';
 })
 export class ChatWriterComponent implements OnInit {
   private messageToSend: string
+  private name: string = "No name"
 
-  constructor( private messageService: MessageService ) { }
+  constructor( private messageService: MessageService) { }
 
   ngOnInit() {
   }
 
   sendMessage(): void {
-    this.messageService.sendMessage("Kevin", this.messageToSend);
+    this.messageService.sendMessage(name, this.messageToSend);
     this.messageToSend = "";
   }
 
+  setName(name: string): void {
+    console.log('parent called')
+    this.name = name;
+  }
 }
