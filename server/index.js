@@ -10,9 +10,9 @@ app.get('/', function (req, res) {
 
 io.on('connection', function (socket) {
   socket.emit('message', { author: 'server', message: "hello friend" });
+  io.emit('message', {author: 'server', message: 'A user connected to the chat'});
   socket.on('add-message', function (data) {
     console.log(data);
-    socket.emit('message', data);
-    socket.broadcast.emit('message', data)
+    io.emit('message', data)
   });
 });

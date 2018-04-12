@@ -1,4 +1,6 @@
-<app-set-name (onNameSet)='setName($event)'></app-set-name> 
+<div *ngIf='name == "No name"'>
+    <app-set-name (onNameSet)='setName($event)'></app-set-name> 
+</div>
 
 <input type='text' [(ngModel)]='messageToSend'/>
 <button (click)='sendMessage()'>SEND</button>
