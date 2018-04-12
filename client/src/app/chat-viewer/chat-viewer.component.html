@@ -7,7 +7,7 @@
   
   <div class="row" *ngIf='!connection'>
       <div class="input-field col s6">
-          <input type="text" class="validate" value="http://localhost:3000" #url>
+          <input type="text" class="validate" [ngModel]='currentUrl' #url>
           <label for="name"></label>
         <button class="btn waves-effect waves-light" (click)='setUrl(url.value)'>Anslut</button>
       </div>

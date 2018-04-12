@@ -13,8 +13,7 @@ export class ChatWriterComponent implements OnInit {
 
   constructor( private messageService: MessageService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   sendMessage(): void {
     this.messageService.sendMessage(this.name, this.messageToSend);
