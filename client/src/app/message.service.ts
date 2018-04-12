@@ -11,24 +11,17 @@ export class MessageService {
   private messageObservable;
 
   constructor() { 
-    this.createObservable();
+    this.initSocket();
   }
 
-  getMessageObservable() {
-    return this.messageObservable;
-  }
-
-  createObservable(url: string = this.URL) {
+  public initSocket(url: string = this.URL): void {
     this.socket = io(url);
-    this.messageObservable = new Observable(observer => {
-      this.socket.on('message', (data) => {
-        observer.next(data);
-        console.log(data);
+  }
+
+  public onMessage(): Observable<Message> {
+      return new Observable<Message>(observer => {
+          this.socket.on('message', (data: Message) => observer.next(data));
       });
-      return () => {
-        this.socket.disconnect();
-      };
-    });
   }
 
   sendMessage(author: string, message: string): void {

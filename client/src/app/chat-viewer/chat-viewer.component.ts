@@ -18,6 +18,9 @@ export class ChatViewerComponent implements OnInit {
 
   ngOnInit() {
     console.log('ChatViewer init')
+    this.connection = this.messageService.onMessage().subscribe((data) => {
+      this.messages.push(data);
+    })
   }
 
   ngOnDestroy() {
