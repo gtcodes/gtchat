@@ -9,10 +9,15 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-  socket.emit('message', { author: 'server', message: "hello friend" });
-  io.emit('message', {author: 'server', message: 'A user connected to the chat'});
+  socket.emit('personal', { author: 'server', message: "Hello and welcome "});
+  io.emit('personal', {author: 'server', message: 'A user connected to the chat'});
+
   socket.on('add-message', function (data) {
     console.log(data);
     io.emit('message', data)
   });
+
+  socket.on('info-message', function (data) {
+    socket.emit('personal', data);
+  })
 });

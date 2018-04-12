@@ -12,7 +12,7 @@ export class ChatWriterComponent implements OnInit {
   private name: string = "No name"
 
   constructor( private messageService: MessageService) { }
-
+  
   ngOnInit() { }
 
   sendMessage(): void {
@@ -22,5 +22,6 @@ export class ChatWriterComponent implements OnInit {
 
   setName(name: string): void {
     this.name = name;
+    this.messageService.sendInfo(this.name, "Namnet har ändrats till " + this.name);
   }
 }
