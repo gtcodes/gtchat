@@ -10,9 +10,7 @@ export class MessageService {
   private socket;
   private messageObservable;
 
-  constructor() { 
-    this.initSocket();
-  }
+  constructor() { }
 
   public initSocket(url: string = this.URL): void {
     this.socket = io(url);
