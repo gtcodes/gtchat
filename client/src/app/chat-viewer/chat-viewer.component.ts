@@ -11,6 +11,7 @@ import { Observable } from 'rxjs/Observable';
 export class ChatViewerComponent implements OnInit {
   private messages: Message[];
   private connection;
+  private currentUrl: string;
 
   constructor( private messageService: MessageService ) {
     this.messages = [];
@@ -25,6 +26,7 @@ export class ChatViewerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentUrl = window.location.href.slice(0,-5) + "3000";
   }
 
   ngOnDestroy() {
