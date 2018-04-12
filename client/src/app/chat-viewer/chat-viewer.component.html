@@ -1,5 +1,9 @@
-<ul>
+<ul *ngIf='connection'>
   <li *ngFor='let message of messages'>
     {{message.author}}: {{message.message}}
   </li>
 </ul>
+<div *ngIf='!connection'>
+  <input type='text' #url value="http://localhost:3000"/>
+  <button (click)='setUrl(url.value)'>SET URL</button>
+</div>

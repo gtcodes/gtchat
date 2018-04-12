@@ -16,11 +16,15 @@ export class ChatViewerComponent implements OnInit {
     this.messages = [];
   }
 
-  ngOnInit() {
+  setUrl(url: string): void {
+    this.messageService.initSocket(url);
     console.log('ChatViewer init')
     this.connection = this.messageService.onMessage().subscribe((data) => {
       this.messages.push(data);
     })
+  }
+
+  ngOnInit() {
   }
 
   ngOnDestroy() {
