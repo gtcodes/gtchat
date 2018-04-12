@@ -16,7 +16,6 @@ export class SetNameComponent implements OnInit {
   }
 
   setName(): void {
-    console.log('set name in child called')
     this.onNameSet.emit(this.name);
   }
 }

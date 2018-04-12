@@ -17,12 +17,11 @@ export class ChatWriterComponent implements OnInit {
   }
 
   sendMessage(): void {
-    this.messageService.sendMessage(name, this.messageToSend);
+    this.messageService.sendMessage(this.name, this.messageToSend);
     this.messageToSend = "";
   }
 
   setName(name: string): void {
-    console.log('parent called')
     this.name = name;
   }
 }
