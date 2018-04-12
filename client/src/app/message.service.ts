@@ -22,8 +22,11 @@ export class MessageService {
       });
   }
 
-  sendMessage(author: string, message: string): void {
+  public sendMessage(author: string, message: string): void {
     this.socket.emit('add-message', {author: author, message: message})
   }
 
+  public isConnected(): boolean {
+    return this.socket != null;
+  }
 }
