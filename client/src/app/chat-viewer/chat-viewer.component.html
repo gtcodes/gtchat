@@ -1,7 +1,12 @@
 <div materialize>
   <ul *ngIf='connection'>
     <li *ngFor='let message of messages'>
-      {{message.author}}: {{message.message}}
+      <div *ngIf='!message.type'>
+        {{message.author}}: {{message.message}}
+      </div>
+      <div *ngIf='message.type'>
+        <i>{{message.message}}</i>
+      </div>
     </li>
   </ul>
   
