@@ -1,9 +1,15 @@
-<ul *ngIf='connection'>
-  <li *ngFor='let message of messages'>
-    {{message.author}}: {{message.message}}
-  </li>
-</ul>
-<div *ngIf='!connection'>
-  <input type='text' #url value="http://localhost:3000"/>
-  <button (click)='setUrl(url.value)'>SET URL</button>
+<div materialize>
+  <ul *ngIf='connection'>
+    <li *ngFor='let message of messages'>
+      {{message.author}}: {{message.message}}
+    </li>
+  </ul>
+  
+  <div class="row" *ngIf='!connection'>
+      <div class="input-field col s6">
+          <input type="text" class="validate" value="http://localhost:3000" #url>
+          <label for="name"></label>
+        <button class="btn waves-effect waves-light" (click)='setUrl(url.value)'>Anslut</button>
+      </div>
+  </div>
 </div>

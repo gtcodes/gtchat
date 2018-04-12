@@ -1,7 +1,13 @@
 <div *ngIf='name == "No name"'>
     <app-set-name (onNameSet)='setName($event)'></app-set-name> 
 </div>
-<div *ngIf='name != "No name"'>
-    <input type='text' [(ngModel)]='messageToSend'/>
-    <button (click)='sendMessage()'>SEND</button>
+<div *ngIf='name != "No name" && messageService.isConnected()'>
+    <div class='row'>
+        <div class='col s6'>
+            <input type='text' [(ngModel)]='messageToSend'/>
+            <a class='btn' (click)='sendMessage()'>Skicka
+                    <i class="material-icons right">send</i>
+            </a>
+        </div>
+    </div>
 </div>
