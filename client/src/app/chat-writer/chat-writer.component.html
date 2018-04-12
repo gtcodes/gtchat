@@ -4,7 +4,7 @@
 <div *ngIf='name != "No name" && messageService.isConnected()'>
     <div class='row'>
         <div>
-            <input type='text' [(ngModel)]='messageToSend' (keyup.enter)='sendMessage()'/>
+            <input type='text' [(ngModel)]='messageToSend' placeholder="Skriv ett meddelande..." (keyup.enter)='sendMessage()'/>
             <a class='btn' (click)='sendMessage()'>Skicka
                     <i class="material-icons right">send</i>
             </a>

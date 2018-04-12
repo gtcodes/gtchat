@@ -1,0 +1,9 @@
+.row {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    max-width: 400px
+}
+.btn {
+    font-size: 20px;
+}
