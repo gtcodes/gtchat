@@ -32,6 +32,14 @@ export class MessageService {
       });
   }
 
+  public onPing(): Observable<string> {
+    return new Observable<string>(observer => {
+      this.socket.on('ping', (data: string) => {
+        observer.next(data);
+      })
+    })
+  }
+
   public sendInfo(author: string, message: string): void {
     this.socket.emit('info-message', {author: author, message: message, type: MessageType.INFO});
   }

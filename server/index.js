@@ -9,8 +9,13 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
+
+  var address = socket.request.connection.remoteAddress.substr(7);
+  console.log('connection from ' + address);
+  socket.emit('ping', address);
+  io.emit('personal', {author: 'server', message: 'A user connected to the chat from ' + address});
+  
   socket.emit('personal', { author: 'server', message: "Hello and welcome "});
-  io.emit('personal', {author: 'server', message: 'A user connected to the chat'});
 
   socket.on('add-message', function (data) {
     console.log(data);

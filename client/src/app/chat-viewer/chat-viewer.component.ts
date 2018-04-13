@@ -10,19 +10,27 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ChatViewerComponent implements OnInit {
   private messages: Message[];
-  private connection;
   private currentUrl: string;
+  private ip: string;
+  
+  private connection;
+  private onPingSubscriber;
 
   constructor( private messageService: MessageService ) {
     this.messages = [];
   }
-
+  
   setUrl(url: string): void {
     this.messageService.initSocket(url);
     console.log('ChatViewer init')
     this.connection = this.messageService.onMessage().subscribe((data) => {
       this.messages.push(data);
-    })
+    });
+
+    this.onPingSubscriber = this.messageService.onPing().subscribe((data) => {
+      console.log("chatviewer got ip: " + data);
+      this.ip = data;
+    });
   }
 
   ngOnInit() {
@@ -31,6 +39,7 @@ export class ChatViewerComponent implements OnInit {
 
   ngOnDestroy() {
     this.connection.unsubscribe();
+    this.onPingSubscriber.unsubscribe();
   }
 
 }
