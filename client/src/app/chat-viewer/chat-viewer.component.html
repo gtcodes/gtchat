@@ -1,5 +1,5 @@
 <h3 *ngIf='ip'>ip: {{ip}}</h3>
-<div materialize>
+<div class="wrapper" materialize>
   <ul *ngIf='connection'>
     <li *ngFor='let message of messages'>
       <div *ngIf='!message.type'>
